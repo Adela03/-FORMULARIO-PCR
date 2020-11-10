@@ -11,14 +11,25 @@ namespace _FORMULARIO_PRG.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+    
+        public IActionResult Index()
         {
-            _logger = logger;
+            return View();
         }
 
-        public IActionResult Index()
+        public IActionResult Producto()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Producto(string nombre, double precio, string descripcion)
+        {
+            //TODO: Hacer algo con los parametros nombre, precio y descripcion
+            return RedirectToAction("ProductoConfirmacion");
+        }
+
+        public IActionResult ProductoConfirmacion()
         {
             return View();
         }
